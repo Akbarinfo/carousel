@@ -1,16 +1,25 @@
-let elCarousel = document.getElementsByClassName('carousel__item');
+let elCarousel = document.getElementById('id-box');
 let elNext = document.getElementById('id-next');
-let next = 1;
-let px = 500;
+let elBack = document.getElementById('id-back');
 
-console.log(elCarousel.item[0]);
+let img = document.querySelectorAll('#id-box img');
 
-elNext.addEventListener('click', ()=> {
-  if(next >= elCarousel.length) {
-    next = 0;
-    px = +500;
-  }
-  elCarousel[next].style.transform = `translateY(-${px}px)`;
-  ++next;
-  px += 500;
-});
+let idx = 0;
+
+function changeImg() {
+    if (idx > img.length - 1) {
+        idx = 0
+    } else if (idx < 0) {
+        idx = img.length - 1
+    }
+    elCarousel.style.transform = `translateX(${-idx * 500}px)`
+}
+
+elNext.addEventListener('click', function change() {
+    idx++;
+    changeImg()
+})
+elBack.addEventListener('click', function change() {
+    idx--;
+    changeImg()
+})

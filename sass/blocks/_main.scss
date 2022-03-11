@@ -3,30 +3,20 @@
 /* CAROUSEL */
 
 .carousel {
-  background-color: #f0ffff73;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
+  width: 500px;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
 
-  &__list {
-    position: relative;
-    width: 500px;
-    height: 500px;
+  &__box {
     display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    border: 1px solid #e1e7e773;
-    list-style-type: none;
-    transform: translateY(40%);
-    overflow: hidden;
-    margin: auto;
+    transition: transform 0.5s linear;
+    transform: translateX(0);
   }
 
-  &__item {
-    width: 500px;
-    height: 500px;
-    background-color: green;
-    transition: all 0.4s linear;
-  }
-
-  &__next {
+    &__next {
     position: absolute;
     top: 45%;
     right: 10px;
@@ -43,6 +33,11 @@
     border: none;
     cursor: pointer;
   }
+}
+
+img {
+  width: 500px;
+  height: 500px;
 }
 
 .bx-chevron-right,
